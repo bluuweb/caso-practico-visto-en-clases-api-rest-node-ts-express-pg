@@ -4,7 +4,7 @@ const { Pool } = pg;
 
 // docker 5434
 // pgadmin 5432
-const connectionString = "postgresql://postgres:root@localhost:5434/dbtest";
+const connectionString = "postgresql://postgres:root@localhost:5434/dbpets";
 
 export const pool = new Pool({
   connectionString,
