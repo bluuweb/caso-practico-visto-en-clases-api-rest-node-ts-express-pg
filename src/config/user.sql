@@ -1,4 +1,4 @@
--- Active: 1732975934927@@127.0.0.1@5434@dbtest@public
+-- Active: 1733252274479@@127.0.0.1@5434@dbpets
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 DROP TABLE IF EXISTS users;

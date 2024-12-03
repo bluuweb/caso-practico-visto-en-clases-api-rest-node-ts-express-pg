@@ -9,13 +9,13 @@ services:
     image: postgres:15 # Usa PostgreSQL versión 15
 
     # Nombre del contenedor
-    # container_name: postgres-corfo # Nombre del contenedor
+    container_name: postgres-corfo-1 # Nombre del contenedor
 
     # Variables de entorno para configurar la base de datos
     environment:
       POSTGRES_USER: postgres # Usuario predeterminado de la base de datos
       POSTGRES_PASSWORD: root # Contraseña del usuario
-      POSTGRES_DB: dbtest # Nombre de la base de datos que se creará
+      POSTGRES_DB: dbpets # Nombre de la base de datos que se creará
 
     # Puertos: mapea el puerto 5432 (dentro del contenedor) al 5434 (en tu máquina host)
     ports:
