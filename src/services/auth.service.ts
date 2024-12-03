@@ -1,30 +1,45 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+import { generateAccessToken } from "../utils/auth.util";
+import { HttpError } from "../utils/httpError.util";
+import logger from "../utils/logger.util";
 import { userService } from "./user.service";
 
 const loginWithEmailAndPassword = async (email: string, password: string) => {
-  const users = await userService.getAllUsers();
-
   // 1. verificar que existe el usuario
-  const user = users.find((item) => item.email === email);
+  const user = await userService.getUserByEmail(email);
+
   if (!user) {
-    throw new Error("User not found");
+    logger.error(email);
+    throw new HttpError("User not found", 400);
   }
 
   // 2. comparar los hash de contraseña
   const isValidPassword = await bcrypt.compare(password, user.password);
   if (!isValidPassword) {
-    throw new Error("Password incorrect");
+    throw new HttpError("Password incorrect", 400);
   }
 
   // 3. generar el token
-  const token = jwt.sign({ email: user.email }, "secret", {
-    expiresIn: "1h",
-  });
+  const token = generateAccessToken(user.email, user.id);
+
+  return token;
+};
+
+const registerWithEmailAndPassword = async (
+  email: string,
+  password: string
+) => {
+  const newUser = await userService.createUserWithEmailAndPassword(
+    email,
+    password
+  );
+
+  const token = generateAccessToken(newUser.email, newUser.id);
 
   return token;
 };
 
 export const authService = {
   loginWithEmailAndPassword,
+  registerWithEmailAndPassword,
 };

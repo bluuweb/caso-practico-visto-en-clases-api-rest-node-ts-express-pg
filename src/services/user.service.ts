@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 
 import { UserModel } from "../models/user.model";
+import { HttpError } from "../utils/httpError.util";
 
 const getAllUsers = async () => {
   // TODO:
@@ -13,14 +14,19 @@ const getUser = async () => {};
 
 // }
 
+const getUserByEmail = async (email: string) => {
+  const user = UserModel.findOneByEmail(email);
+  return user;
+};
+
 const createUserWithEmailAndPassword = async (
   email: string,
   password: string
 ) => {
-  const user = await UserModel.getByEmail(email);
+  const user = await UserModel.findOneByEmail(email);
 
   if (user) {
-    throw new Error("Email already exists");
+    throw new HttpError("Email already exists", 400);
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -35,4 +41,5 @@ export const userService = {
   getAllUsers,
   getUser,
   createUserWithEmailAndPassword,
+  getUserByEmail,
 };

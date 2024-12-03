@@ -1,6 +1,12 @@
 import { pool } from "../config/database";
+import { User } from "../interfaces/user.interface";
 
-const getByEmail = async (email: string) => {
+const findAll = async () => {
+  const { rows } = await pool.query("SELECT * FROM USERS");
+  return rows as User[];
+};
+
+const findOneByEmail = async (email: string) => {
   // Datos parametrizados
   const query = {
     text: `
@@ -12,8 +18,7 @@ const getByEmail = async (email: string) => {
 
   const { rows } = await pool.query(query);
 
-  console.log(rows);
-  return rows[0];
+  return rows[0] as User;
 };
 
 const create = async (email: string, password: string) => {
@@ -28,11 +33,11 @@ const create = async (email: string, password: string) => {
 
   const { rows } = await pool.query(query);
 
-  console.log(rows);
-  return rows[0];
+  return rows[0] as User;
 };
 
 export const UserModel = {
   create,
-  getByEmail,
+  findOneByEmail,
+  findAll,
 };

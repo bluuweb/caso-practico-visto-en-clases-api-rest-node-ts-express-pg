@@ -1,0 +1,10 @@
+2024-12-03T23:35:36.558Z [ERROR]: User not found
+2024-12-03T23:35:53.242Z [ERROR]: User not found
+2024-12-03T23:35:59.103Z [ERROR]: User not found
+2024-12-03T23:36:03.484Z [ERROR]: Password incorrect
+2024-12-03T23:37:42.754Z [ERROR]: /api/v1/auth/login POST Password incorrect
+2024-12-03T23:38:40.477Z [ERROR]: /api/v1/auth/login POST Password incorrect
+2024-12-03T23:38:59.766Z [ERROR]: /api/v1/auth/login POST Password incorrect
+2024-12-03T23:39:10.187Z [ERROR]: test1@domain.coms
+2024-12-03T23:39:10.188Z [ERROR]: /api/v1/auth/login POST User not found
+2024-12-03T23:42:46.026Z [INFO]: /api/v1/auth/login POST

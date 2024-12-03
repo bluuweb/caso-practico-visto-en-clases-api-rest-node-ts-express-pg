@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { verifyAccessToken } from "../utils/auth.util";
 
 // Quiero extender o modificar el comportamiento de un módulo ya existente.
 declare module "express-serve-static-core" {
   interface Request {
     email?: string;
+    uid?: string;
   }
 }
 
@@ -20,8 +22,9 @@ export const verifyToken = (
   }
   const token = authHeader.split(" ")[1];
   try {
-    const payload = jwt.verify(token, "secret") as jwt.JwtPayload;
+    const payload = verifyAccessToken(token);
     req.email = payload.email;
+    req.uid = payload.uid;
     next();
   } catch (error) {
     console.log(error);
