@@ -8,3 +8,14 @@
 2024-12-03T23:39:10.187Z [ERROR]: test1@domain.coms
 2024-12-03T23:39:10.188Z [ERROR]: /api/v1/auth/login POST User not found
 2024-12-03T23:42:46.026Z [INFO]: /api/v1/auth/login POST
+2024-12-04T00:05:12.638Z [INFO]: /api/v1/auth/login POST
+2024-12-04T00:05:12.656Z [ERROR]: test1@test.com
+2024-12-04T00:05:12.657Z [ERROR]: /api/v1/auth/login POST User not found
+2024-12-04T00:05:19.574Z [INFO]: /api/v1/auth/login POST
+2024-12-04T00:05:19.577Z [ERROR]: test1@test.com
+2024-12-04T00:05:19.577Z [ERROR]: /api/v1/auth/login POST User not found
+2024-12-04T00:05:24.785Z [INFO]: /api/v1/auth/login POST
+2024-12-04T00:06:04.376Z [INFO]: /api/v1/pets POST
+2024-12-04T00:10:07.095Z [INFO]: /api/v1/pets POST
+2024-12-04T00:10:41.224Z [INFO]: /api/v1/pets POST
+2024-12-04T00:11:29.542Z [INFO]: /api/v1/pets POST

@@ -4,6 +4,7 @@ import { pool } from "./config/database";
 import { httpErrorHandle } from "./middlewares/httpErrorHandle.middleware";
 import { loggerMiddleware } from "./middlewares/logger.middleware";
 import authRoute from "./routes/auth.route";
+import petRoute from "./routes/pet.route";
 import userRoute from "./routes/user.route";
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(loggerMiddleware);
 
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/pets", petRoute);
 
 app.use(httpErrorHandle);
 
