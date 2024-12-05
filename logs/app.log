@@ -30,3 +30,11 @@
 2024-12-05T23:10:38.686Z [INFO]: /api/v1/pets GET
 2024-12-05T23:11:00.307Z [INFO]: /api/v1/pets POST
 2024-12-05T23:11:10.989Z [INFO]: /api/v1/pets GET
+2024-12-05T23:14:49.761Z [INFO]: /api/v1/pets POST
+2024-12-05T23:33:12.826Z [INFO]: /api/v1/auth/login POST
+2024-12-05T23:33:12.836Z [ERROR]: /api/v1/auth/login POST "email" is required
+2024-12-05T23:33:40.912Z [ERROR]: /api/v1/auth/login POST Expected ',' or '}' after property value in JSON at position 26 (line 3 column 1)
+2024-12-05T23:33:46.474Z [INFO]: /api/v1/auth/login POST
+2024-12-05T23:33:46.478Z [ERROR]: /api/v1/auth/login POST "email" must be a valid email
+2024-12-05T23:33:56.752Z [INFO]: /api/v1/auth/login POST
+2024-12-05T23:33:56.762Z [ERROR]: /api/v1/auth/login POST "password" length must be at least 6 characters long

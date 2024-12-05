@@ -1,10 +1,11 @@
+import "dotenv/config";
 import pg from "pg";
 
 const { Pool } = pg;
 
 // docker 5434
 // pgadmin 5432
-const connectionString = "postgresql://postgres:root@localhost:5434/dbpets";
+const connectionString = process.env.CONNECT_DB;
 
 export const pool = new Pool({
   connectionString,
