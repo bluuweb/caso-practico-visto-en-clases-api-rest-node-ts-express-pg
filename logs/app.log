@@ -19,3 +19,14 @@
 2024-12-04T00:10:07.095Z [INFO]: /api/v1/pets POST
 2024-12-04T00:10:41.224Z [INFO]: /api/v1/pets POST
 2024-12-04T00:11:29.542Z [INFO]: /api/v1/pets POST
+2024-12-05T22:48:27.127Z [INFO]: /api-docs/ GET
+2024-12-05T22:56:46.482Z [INFO]: /api/v1/auth/login POST
+2024-12-05T22:56:46.556Z [ERROR]: user@example.com
+2024-12-05T22:56:46.558Z [ERROR]: /api/v1/auth/login POST User not found
+2024-12-05T22:57:01.069Z [INFO]: /api/v1/auth/login POST
+2024-12-05T22:57:01.243Z [ERROR]: /api/v1/auth/login POST Password incorrect
+2024-12-05T22:57:18.070Z [INFO]: /api/v1/auth/login POST
+2024-12-05T23:10:01.476Z [INFO]: /api/v1/auth/login POST
+2024-12-05T23:10:38.686Z [INFO]: /api/v1/pets GET
+2024-12-05T23:11:00.307Z [INFO]: /api/v1/pets POST
+2024-12-05T23:11:10.989Z [INFO]: /api/v1/pets GET

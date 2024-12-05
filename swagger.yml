@@ -1,0 +1,394 @@
+openapi: "3.0.0"
+info:
+  title: "API Example"
+  version: "1.0.0"
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - "auth"
+      summary: "Login"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthBody"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        400:
+          description: "Bad Request"
+        500:
+          description: "Internal Server Error"
+
+  /auth/register:
+    post:
+      tags:
+        - "auth"
+      summary: "Register"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthBody"
+      responses:
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        400:
+          description: "Bad Request"
+        500:
+          description: "Internal Server Error"
+
+  /users:
+    get:
+      tags:
+        - "users"
+      summary: "Get all users"
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UsersResponse"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+        - "users"
+      summary: "Create a user"
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthBody"
+      responses:
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /users/{id}:
+    get:
+      tags:
+        - "users"
+      summary: "Get a user"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "9184960d-fe58-49c5-a714-6edb32672d14"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+    put:
+      tags:
+        - "users"
+      summary: "Update a user"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "9184960d-fe58-49c5-a714-6edb32672d14"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthBody"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+    delete:
+      tags:
+        - "users"
+      summary: "Delete a user"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "9184960d-fe58-49c5-a714-6edb32672d14"
+      responses:
+        204:
+          description: "No Content"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+
+  /pets:
+    get:
+      tags:
+        - "pets"
+      summary: "Get all pets of the user"
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Pet"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+        - "pets"
+      summary: "Create a new pet"
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetBody"
+      responses:
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        500:
+          description: "Internal Server Error"
+
+  /pets/{pet_id}:
+    get:
+      tags:
+        - "pets"
+      summary: "Get a specific pet by ID"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "pet_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "e748fdbf-44b5-4711-b7b9-ef04594b5298"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+    patch:
+      tags:
+        - "pets"
+      summary: "Update a specific pet"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "pet_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "e748fdbf-44b5-4711-b7b9-ef04594b5298"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetBody"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+    delete:
+      tags:
+        - "pets"
+      summary: "Delete a specific pet"
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: "pet_id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+            format: "uuid"
+            example: "e748fdbf-44b5-4711-b7b9-ef04594b5298"
+      responses:
+        204:
+          description: "No Content"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: "http"
+      scheme: "bearer"
+      bearerFormat: "JWT"
+
+  schemas:
+    AuthResponse:
+      type: "object"
+      properties:
+        token:
+          type: "string"
+          example: "eyJhbGciOi..."
+
+    AuthBody:
+      type: "object"
+      properties:
+        email:
+          type: "string"
+          format: "email"
+          example: "test1@domain.com"
+        password:
+          type: "string"
+          example: "123123"
+
+    User:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+          example: "9184960d-fe58-49c5-a714-6edb32672d14"
+        email:
+          type: "string"
+          format: "email"
+          example: "test2@domain.com"
+        password:
+          type: "string"
+          example: "$2a$10$2wS6XBG6wej2diNGPZPaD.J63zU3K16hTkh7Zpy3xpK.o.2c6MKUW"
+
+    UsersResponse:
+      type: "object"
+      properties:
+        email:
+          type: "string"
+          format: "email"
+          example: "test1@domain.com"
+        users:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/User"
+
+    Pet:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+          example: "e748fdbf-44b5-4711-b7b9-ef04594b5298"
+        name:
+          type: "string"
+          example: "Doggo"
+        age:
+          type: "number"
+          example: 2
+        user_id:
+          type: "string"
+          format: "uuid"
+          example: "9184960d-fe58-49c5-a714-6edb32672d14"
+
+    PetBody:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+          example: "Doggo"
+        age:
+          type: "number"
+          example: 2

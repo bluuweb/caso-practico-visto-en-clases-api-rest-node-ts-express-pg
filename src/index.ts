@@ -7,8 +7,17 @@ import authRoute from "./routes/auth.route";
 import petRoute from "./routes/pet.route";
 import userRoute from "./routes/user.route";
 
+import swaggerUi from "swagger-ui-express";
+import openapiSpecification from "./config/swagger";
+
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(
+  "/api/v1/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(openapiSpecification)
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

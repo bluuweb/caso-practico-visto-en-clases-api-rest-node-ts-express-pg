@@ -18,7 +18,7 @@ const findOneByEmail = async (email: string) => {
 
   const { rows } = await pool.query(query);
 
-  return rows[0] as User;
+  return rows[0] as User; // ORM
 };
 
 const create = async (email: string, password: string) => {

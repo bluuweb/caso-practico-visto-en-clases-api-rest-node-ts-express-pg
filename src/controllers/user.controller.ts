@@ -18,6 +18,7 @@ const getUsers = async (req: Request, res: Response) => {
 
 const getUser = async (req: Request, res: Response) => {
   try {
+    const { id } = req.params;
     res.json({});
   } catch (error) {
     console.log(error);
