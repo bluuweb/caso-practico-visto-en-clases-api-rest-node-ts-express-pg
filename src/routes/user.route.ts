@@ -18,7 +18,10 @@ router.get("/:id", userController.getUser);
 router.post("/", userController.createUser);
 
 // eliminar un usuario por id
+// router.delete("/:id", userController.deleteUser);
 
 // actualizar un usuario por id
+// router.put("/:id", userController.updateUser);
+// router.patch("/:id", userController.updateUser);
 
 export default router;
