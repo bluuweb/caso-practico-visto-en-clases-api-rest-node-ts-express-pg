@@ -38,3 +38,11 @@
 2024-12-05T23:33:46.478Z [ERROR]: /api/v1/auth/login POST "email" must be a valid email
 2024-12-05T23:33:56.752Z [INFO]: /api/v1/auth/login POST
 2024-12-05T23:33:56.762Z [ERROR]: /api/v1/auth/login POST "password" length must be at least 6 characters long
+2024-12-07T14:07:50.395Z [INFO]: / GET
+2024-12-07T14:08:38.490Z [INFO]: /api/v1/users GET
+2024-12-07T14:16:09.736Z [INFO]: /api/v1/users GET
+2024-12-07T14:16:46.542Z [INFO]: /api/v1/users GET
+2024-12-07T14:18:32.609Z [INFO]: /api/v1/users GET
+2024-12-07T14:21:24.304Z [INFO]: /api/v1/users GET
+2024-12-07T14:24:05.383Z [INFO]: /api/v1/users GET
+2024-12-07T14:24:30.289Z [INFO]: /api/v1/users GET

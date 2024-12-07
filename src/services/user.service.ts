@@ -4,7 +4,7 @@ import { UserModel } from "../models/user.model";
 import { HttpError } from "../utils/httpError.util";
 
 const getAllUsers = async () => {
-  // TODO:
+  return await UserModel.findAll();
 };
 
 const getUser = async () => {};
